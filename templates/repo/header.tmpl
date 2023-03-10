@@ -159,15 +159,6 @@
 				</a>
 				{{end}}
 
-				{{if .Permission.CanRead $.UnitTypeIssues}}
-					<a class="{{if .PageIsIssueList}}active {{end}}item" href="{{.RepoLink}}/issues">
-						{{svg "octicon-issue-opened"}} {{.locale.Tr "repo.issues"}}
-						{{if .Repository.NumOpenIssues}}
-							<span class="ui small label">{{CountFmt .Repository.NumOpenIssues}}</span>
-						{{end}}
-					</a>
-				{{end}}
-
 				{{if .Permission.CanRead $.UnitTypeExternalTracker}}
 					<a class="{{if .PageIsIssueList}}active {{end}}item" href="{{.RepoExternalIssuesLink}}" target="_blank" rel="noopener noreferrer">
 						{{svg "octicon-link-external"}} {{.locale.Tr "repo.issues"}} </span>
@@ -192,12 +183,6 @@
 					</a>
 				{{end}}
 
-				{{if .Permission.CanRead $.UnitTypePackages}}
-					<a href="{{.RepoLink}}/packages" class="{{if .IsPackagesPage}}active {{end}}item">
-						{{svg "octicon-package"}} {{.locale.Tr "packages.title"}}
-					</a>
-				{{end}}
-
 				{{if and (not .UnitProjectsGlobalDisabled) (.Permission.CanRead $.UnitTypeProjects)}}
 					<a href="{{.RepoLink}}/projects" class="{{if .IsProjectsPage}}active {{end}}item">
 						{{svg "octicon-project"}} {{.locale.Tr "repo.project_board"}}
@@ -214,12 +199,6 @@
 						<span class="ui small label">{{CountFmt .NumReleases}}</span>
 					{{end}}
 				</a>
-				{{end}}
-
-				{{if or (.Permission.CanRead $.UnitTypeWiki) (.Permission.CanRead $.UnitTypeExternalWiki)}}
-					<a class="{{if .PageIsWiki}}active {{end}}item" href="{{.RepoLink}}/wiki" {{if and (.Permission.CanRead $.UnitTypeExternalWiki) (not (HasPrefix ((.Repository.MustGetUnit $.Context $.UnitTypeExternalWiki).ExternalWikiConfig.ExternalWikiURL) (.Repository.Link)))}} target="_blank" rel="noopener noreferrer" {{end}}>
-						{{svg "octicon-book"}} {{.locale.Tr "repo.wiki"}}
-					</a>
 				{{end}}
 
 				{{if and (.Permission.CanReadAny $.UnitTypePullRequests $.UnitTypeIssues $.UnitTypeReleases) (not .IsEmptyRepo)}}
