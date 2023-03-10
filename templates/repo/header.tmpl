@@ -66,19 +66,8 @@
 							</div>
 						</form>
 					{{end}}
-					<form method="post" action="{{$.RepoLink}}/action/{{if $.IsWatchingRepo}}un{{end}}watch?redirect_to={{$.Link}}">
-						{{$.CsrfTokenHtml}}
-						<div class="ui labeled button{{if not $.IsSigned}} tooltip{{end}}"{{if not $.IsSigned}} data-content="{{$.locale.Tr "repo.watch_guest_user"}}" data-position="top center"{{end}}>
-							<button type="submit" class="ui compact small basic button"{{if not $.IsSigned}} disabled{{end}}>
-								{{if $.IsWatchingRepo}}{{svg "octicon-eye-closed" 16}}{{$.locale.Tr "repo.unwatch"}}{{else}}{{svg "octicon-eye"}}{{$.locale.Tr "repo.watch"}}{{end}}
-							</button>
-							<a class="ui basic label" href="{{.Link}}/watchers">
-								{{CountFmt .NumWatches}}
-							</a>
-						</div>
-					</form>
-					{{if not $.DisableStars}}
-						<form method="post" action="{{$.RepoLink}}/action/{{if $.IsStaringRepo}}un{{end}}star?redirect_to={{$.Link}}">
+					{{/* {{if not $.DisableStars}}
+					<form method="post" action="{{$.RepoLink}}/action/{{if $.IsStaringRepo}}un{{end}}star?redirect_to={{$.Link}}">
 							{{$.CsrfTokenHtml}}
 							<div class="ui labeled button{{if not $.IsSigned}} tooltip{{end}}"{{if not $.IsSigned}} data-content="{{$.locale.Tr "repo.star_guest_user"}}" data-position="top center"{{end}}>
 								<button type="submit" class="ui compact small basic button"{{if not $.IsSigned}} disabled{{end}}>
@@ -89,7 +78,7 @@
 								</a>
 							</div>
 						</form>
-					{{end}}
+					{{end}} */}}
 					{{if and (not .IsEmpty) ($.Permission.CanRead $.UnitTypeCode)}}
 						<div class="ui labeled button
 							{{if or (not $.IsSigned) (and (not $.CanSignedUserFork) (eq (len $.UserAndOrgForks) 0))}}
@@ -183,14 +172,14 @@
 					</a>
 				{{end}}
 
-				{{if and (not .UnitProjectsGlobalDisabled) (.Permission.CanRead $.UnitTypeProjects)}}
+				{{/* {{if and (not .UnitProjectsGlobalDisabled) (.Permission.CanRead $.UnitTypeProjects)}}
 					<a href="{{.RepoLink}}/projects" class="{{if .IsProjectsPage}}active {{end}}item">
 						{{svg "octicon-project"}} {{.locale.Tr "repo.project_board"}}
 						{{if .Repository.NumOpenProjects}}
 							<span class="ui small label">{{CountFmt .Repository.NumOpenProjects}}</span>
 						{{end}}
 					</a>
-				{{end}}
+				{{end}} */}}
 
 				{{if and (.Permission.CanRead $.UnitTypeReleases) (not .IsEmptyRepo)}}
 				<a class="{{if .PageIsReleaseList}}active {{end}}item" href="{{.RepoLink}}/releases">
