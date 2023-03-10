@@ -19,6 +19,12 @@ services:
     kucid:
         image: kucid:new
         build: .
+        restart: always
+        ports:
+            - mode: host
+              protocol: tcp
+              published: 3000
+              target: 3000
         depends_on:
             - postgres
 
