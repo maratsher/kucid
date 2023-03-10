@@ -24,10 +24,10 @@
 
 <template id="dashboard-repo-list-template">
 	<div>
-		<div v-if="!isOrganization" class="ui two item tabable menu">
+		<!-- <div v-if="!isOrganization" class="ui two item tabable menu">
 			<a :class="{item: true, active: tab === 'repos'}" @click="changeTab('repos')">{{.locale.Tr "repository"}}</a>
 			<a :class="{item: true, active: tab === 'organizations'}" @click="changeTab('organizations')">{{.locale.Tr "organization"}}</a>
-		</div>
+		</div> -->
 		<div v-show="tab === 'repos'" class="ui tab active list dashboard-repos">
 			<h4 class="ui top attached header gt-df gt-ac">
 				<div class="gt-f1 gt-df gt-ac">
@@ -90,7 +90,7 @@
 						{{.locale.Tr "sources"}}
 						<div v-show="reposFilter === 'sources'" class="ui circular mini grey label">${repoTypeCount}</div>
 					</a>
-					<a class="item" :class="{active: reposFilter === 'forks'}" @click="changeReposFilter('forks')">
+					<!-- <a class="item" :class="{active: reposFilter === 'forks'}" @click="changeReposFilter('forks')">
 						{{.locale.Tr "forks"}}
 						<div v-show="reposFilter === 'forks'" class="ui circular mini grey label">${repoTypeCount}</div>
 					</a>
@@ -99,7 +99,7 @@
 						{{.locale.Tr "mirrors"}}
 						<div v-show="reposFilter === 'mirrors'" class="ui circular mini grey label">${repoTypeCount}</div>
 					</a>
-					{{end}}
+					{{end}} -->
 					<a class="item" :class="{active: reposFilter === 'collaborative'}" @click="changeReposFilter('collaborative')">
 						{{.locale.Tr "collaborative"}}
 						<div v-show="reposFilter === 'collaborative'" class="ui circular mini grey label">${repoTypeCount}</div>
