@@ -11,8 +11,10 @@
 							{{if .ContextUser.Visibility.IsPrivate}}<div class="ui basic tiny horizontal label">{{.locale.Tr "org.settings.visibility.private_shortname"}}</div>{{end}}
 						</span>
 					{{end}}
-					{{svg "octicon-triangle-down" 14 "dropdown icon"}}
+					{{/* {{svg "octicon-triangle-down" 14 "dropdown icon"}} */}}
 				</span>
+
+				{{/*
 				<div class="context user overflow menu" tabindex="-1">
 					<div class="ui header">
 						{{.locale.Tr "home.switch_dashboard_context"}}
@@ -39,6 +41,8 @@
 					</a>
 					{{end}}
 				</div>
+				*/}}
+
 			</div>
 		</div>
 		{{if .ContextUser.IsOrganization}}
