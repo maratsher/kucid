@@ -54,6 +54,7 @@
 				</div>
 			</form>
 
+			{{/*
 			<div class="ui divider"></div>
 
 			<form class="ui form" action="{{.Link}}/avatar" method="post" enctype="multipart/form-data">
@@ -68,8 +69,10 @@
 					<a class="ui red button delete-post" data-request-url="{{.Link}}/avatar/delete" data-done-url="{{.Link}}">{{$.locale.Tr "settings.delete_current_avatar"}}</a>
 				</div>
 			</form>
+			*/}}
 
 		</div>
+		{{/*
 
 		{{if .MirrorsEnabled}}
 			<h4 class="ui top attached header">
@@ -241,6 +244,9 @@
 			</div>
 		{{end}}
 
+		*/}}
+
+		{{/*
 		<h4 class="ui top attached header">
 			{{.locale.Tr "repo.settings.advanced_settings"}}
 		</h4>
@@ -585,7 +591,9 @@
 				</div>
 			</form>
 		</div>
+		*/}}
 
+		{{/*
 		<h4 class="ui top attached header">
 			{{.locale.Tr "repo.settings.signing_settings"}}
 		</h4>
@@ -631,6 +639,10 @@
 				</div>
 			</form>
 		</div>
+
+		*/}}
+
+		{{/*
 
 		{{if .IsAdmin}}
 		<h4 class="ui top attached header">
@@ -694,6 +706,8 @@
 		</div>
 		{{end}}
 
+		*/}}
+
 		{{if .Permission.IsOwner}}
 		<h4 class="ui top attached error header">
 			{{.locale.Tr "repo.settings.danger_zone"}}
@@ -745,6 +759,8 @@
 				</div>
 			</div>
 
+			{{/*
+
 			{{if .Permission.CanRead $.UnitTypeWiki}}
 				<div class="ui divider"></div>
 
@@ -759,6 +775,8 @@
 				</div>
 			{{end}}
 
+			*/}}
+
 			<div class="ui divider"></div>
 
 			<div class="item">
@@ -771,30 +789,6 @@
 				</div>
 			</div>
 
-			{{if not .Repository.IsMirror}}
-				<div class="ui divider"></div>
-
-				<div class="item">
-					<div class="ui right">
-						<button class="ui basic red show-modal button" data-modal="#archive-repo-modal">
-							{{if .Repository.IsArchived}}
-								{{.locale.Tr "repo.settings.unarchive.button"}}
-							{{else}}
-								{{.locale.Tr "repo.settings.archive.button"}}
-							{{end}}
-						</button>
-					</div>
-					<div>
-						{{if .Repository.IsArchived}}
-							<h5>{{.locale.Tr "repo.settings.unarchive.header"}}</h5>
-							<p>{{.locale.Tr "repo.settings.unarchive.text"}}</p>
-						{{else}}
-							<h5>{{.locale.Tr "repo.settings.archive.header"}}</h5>
-							<p>{{.locale.Tr "repo.settings.archive.text"}}</p>
-						{{end}}
-					</div>
-				</div>
-			{{end}}
 		</div>
 		{{end}}
 	</div>
